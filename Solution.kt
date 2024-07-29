@@ -9,10 +9,10 @@ class Solution {
     private var columns: Int = 0
 
     fun minScore(matrix: Array<IntArray>): Array<IntArray> {
-        this.rows = matrix.size;
-        this.columns = matrix[0].size;
-        val pointsSortedInAscendingValue: ArrayList<Point> = createPointsSortedInAscendingValue(matrix);
-        return createMatrixWithMinimizedMaxValue(pointsSortedInAscendingValue);
+        this.rows = matrix.size
+        this.columns = matrix[0].size
+        val pointsSortedInAscendingValue: ArrayList<Point> = createPointsSortedInAscendingValue(matrix)
+        return createMatrixWithMinimizedMaxValue(pointsSortedInAscendingValue)
     }
 
     private fun createMatrixWithMinimizedMaxValue(pointsSortedInAscendingValue: ArrayList<Point>): Array<IntArray> {
@@ -21,12 +21,12 @@ class Solution {
         val currentValueColumns = IntArray(columns)
 
         for (current in pointsSortedInAscendingValue) {
-            val nextValue = 1 + max(currentValueRows[current.row], currentValueColumns[current.column]);
-            currentValueRows[current.row] = nextValue;
-            currentValueColumns[current.column] = nextValue;
-            matrixWithMinimizedMaxValue[current.row][current.column] = nextValue;
+            val nextValue = 1 + max(currentValueRows[current.row], currentValueColumns[current.column])
+            currentValueRows[current.row] = nextValue
+            currentValueColumns[current.column] = nextValue
+            matrixWithMinimizedMaxValue[current.row][current.column] = nextValue
         }
-        return matrixWithMinimizedMaxValue;
+        return matrixWithMinimizedMaxValue
     }
 
     private fun createPointsSortedInAscendingValue(matrix: Array<IntArray>): ArrayList<Point> {
